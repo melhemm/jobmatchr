@@ -1,0 +1,3 @@
+:queues:
+  - default
+:url: redis://redis:6379/0
