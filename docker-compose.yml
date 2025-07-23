@@ -37,5 +37,15 @@ services:
     environment:
       - RAILS_ENV=development
       - REDIS_URL=redis://redis:6379/0
+  tailwind:
+    build: .
+    command: rails tailwindcss:watch
+    stdin_open: true
+    depends_on:
+      - web
+    volumes:
+      - .:/app
+    environment:
+      - RAILS_ENV=development
 volumes:
   postgres_data:
