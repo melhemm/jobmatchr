@@ -1,0 +1,8 @@
+<div class="max-w-2xl mx-auto mt-10 p-8 bg-white rounded-lg shadow">
+  <h1 class="text-3xl font-bold mb-4 text-blue-700">Welcome to the Job Portal</h1>
+  <p class="mb-6 text-gray-700">Please sign in or register as an employee or company to continue.</p>
+  <div class="flex flex-col gap-4">
+    <%= link_to 'Sign In', new_user_session_path, class: 'w-full bg-blue-600 text-white font-semibold py-2 px-4 rounded hover:bg-blue-700 text-center' %>
+    <%= link_to 'Sign Up', new_user_registration_path, class: 'w-full bg-green-600 text-white font-semibold py-2 px-4 rounded hover:bg-green-700 text-center' %>
+  </div>
+</div>
