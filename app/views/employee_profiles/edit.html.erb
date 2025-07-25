@@ -1,0 +1,20 @@
+<h1>Edit Employee Profile</h1>
+
+<%= form_with model: @profile, url: employee_profile_path do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+
+  <%= f.label :address %>
+  <%= f.text_field :address %>
+
+  <%= f.label :skills %>
+  <%= f.text_area :skills, placeholder: "Comma separated skills" %>
+
+  <%= f.label :resume_url %>
+  <%= f.text_field :resume_url %>
+
+  <%= f.submit "Update Profile" %>
+<% end %>

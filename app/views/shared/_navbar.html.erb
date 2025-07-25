@@ -1,0 +1,23 @@
+<nav class="bg-white shadow mb-8">
+  <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="text-2xl font-bold text-blue-700">
+      <%= link_to 'Job Portal', root_path, class: 'hover:text-blue-900' %>
+    </div>
+    <div class="space-x-4 flex items-center">
+      <%= link_to 'Main Page', root_path, class: 'text-blue-700 hover:underline font-medium' %>
+      <% if user_signed_in? %>
+        <% if current_user.employee? %>
+          <%= link_to 'Dashboard', employee_root_path, class: 'text-blue-700 hover:underline font-medium' %>
+          <%= link_to 'Profile', edit_employee_profile_path(current_user.employee_profile), class: 'text-blue-700 hover:underline font-medium' %>
+        <% elsif current_user.company? %>
+          <%= link_to 'Dashboard', company_root_path, class: 'text-blue-700 hover:underline font-medium' %>
+          <%= link_to 'Profile', edit_company_profile_path(current_user.company_profile), class: 'text-blue-700 hover:underline font-medium' %>
+        <% end %>
+        <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 ml-2', data: { turbo: false } %>
+      <% else %>
+        <%= link_to 'Login', new_user_session_path, class: 'bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700' %>
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700' %>
+      <% end %>
+    </div>
+  </div>
+</nav>

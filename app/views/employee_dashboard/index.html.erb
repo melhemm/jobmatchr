@@ -1,0 +1,16 @@
+<div class="max-w-2xl mx-auto mt-10 p-8 bg-white rounded-lg shadow">
+  <h1 class="text-3xl font-bold mb-4 text-blue-700">Welcome, <%= current_user.email %>!</h1>
+  <p class="mb-6 text-gray-700">This is your employee dashboard.</p>
+
+  <% if @profile %>
+    <div class="mb-4">
+      <h2 class="text-xl font-semibold mb-2">Your Profile</h2>
+      <ul class="list-disc ml-6 text-gray-600">
+        <li><strong>Email:</strong> <%= current_user.email %></li>
+      </ul>
+    </div>
+    <%= link_to 'Edit Profile', edit_employee_profile_path(@profile), class: 'inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700' %>
+  <% else %>
+    <p class="text-red-500">No profile found.</p>
+  <% end %>
+</div>
